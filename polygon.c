@@ -7,16 +7,16 @@
 #include <math.h>
 #define PI 3.14155269f
 
-struct Cordinate
+typedef struct
 {
 	float x;
 	float y;
-};
+} Cordinate;
 
-struct Cordinate
+Cordinate
 position(float radian)
 {
-	struct Cordinate pos;
+	Cordinate pos;
 
 	pos.x = cos(radian);
 	pos.y = sin(radian);
@@ -24,18 +24,19 @@ position(float radian)
 	return(pos);
 }
 
-struct Cordinate*
+Cordinate*
 polygon_vectors(unsigned vcount, float size)
 {
 	float distance = 2.0*PI/vcount;
-	struct Cordinate *vectors = malloc(vcount * sizeof(struct Cordinate) + 1);
-	*vectors = {0.0f, 0.0f};
-
-	for(float pos = 0, struct Cordinate cord = vectors +1;
+	Cordinate *vectors = malloc(vcount+1 * sizeof(Cordinate));
+	vectors[0].x = 0.0f;
+	vectors[0].y = 0.0f;
+	int i;
+	for(float pos = 0, i = 1;
 								pos <= 2.0*PI-distance;
-								cord++, pos += distance)
+								i+=1, pos += distance)
 		{
-			*cord = position(pos);
+			vectors[(int)i] = position(pos);
 		}
 
 	return(vectors);
