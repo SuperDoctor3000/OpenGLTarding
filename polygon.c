@@ -11,7 +11,8 @@ typedef struct
 {
 	float x;
 	float y;
-} Cordinate;
+} Cordinate; //Ændrede definitionen til at bruge typedef så vi ikke behøver det noget klodsede "struct Cordinate" over det hele.
+			 //By the way, mener stavemåde er "coordinate"
 
 Cordinate
 position(float radian)
@@ -25,10 +26,10 @@ position(float radian)
 }
 
 Cordinate*
-polygon_vectors(unsigned vcount, float size)
-{
+polygon_vectors(unsigned vcount, float size) //ændret til at bruge arrays. i defineres uden for for loopet da det fikser en syntax error
+{											 //jeg ellers ikke lige kunne finde ud af
 	float distance = 2.0*PI/vcount;
-	Cordinate *vectors = malloc(vcount+1 * sizeof(Cordinate));
+	Cordinate *vectors = malloc(vcount+1 * sizeof(Cordinate)); 
 	vectors[0].x = 0.0f;
 	vectors[0].y = 0.0f;
 	int i;
