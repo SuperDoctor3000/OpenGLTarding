@@ -1,11 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "gl_tools.h"
+//#include "gl_tools.h"
 #include <GL/glew.h>
 #include <GL/glfw.h>
+//#include <gsl>
 
-char *
-LoadFile(char *Filename)
+typedef struct{
+	GLuint shader;
+	GLuint vertexarray;
+	GLuint vertexbuffer;
+	GLuint elementbuffer;
+	float* data;
+	int size;
+} model;
+
+char *LoadFile(char *Filename)
 {
 	long Lenght;
 	char *Source;
@@ -23,7 +32,7 @@ LoadFile(char *Filename)
 }
 
 GLuint
-MakeShader(char *Filename, GLenum Type)
+MakeShader(char *Filename, GLenum Type) 
 {
 	char *Source = LoadFile(Filename);
 	GLuint Shader = glCreateShader(Type);
@@ -47,3 +56,16 @@ MakeShader(char *Filename, GLenum Type)
 	return(Shader);
 }
 
+model makeModel(GLuint shader, float* data, int size) {
+	model output;
+	output.shader = shader;
+	output.data = data;
+	output.size = size;
+	glGenBuffers(1, &output.vertexbuffer);
+	return output;
+}
+
+void updateModel(model updatee, GLenum style) {
+	glBindBuffer(GL_ARRAY_BUFFER, updatee.vertexbuffer);
+	glBufferData(GL_ARRAY_BUFFER, updatee.size, updatee.data, style);
+}

@@ -7,6 +7,7 @@
 #include <math.h>
 #define PI 3.14155269f
 
+
 typedef struct
 {
 	float x;
@@ -42,6 +43,7 @@ polygon_vectors(unsigned vcount, float size) //ændret til at bruge arrays. i de
 
 	return(vectors);
 }
+
 int
 main(int argc, char **argv)
 {
@@ -63,5 +65,5 @@ main(int argc, char **argv)
 	while(glfwGetWindowParam(GLFW_OPENED))
 		glfwSwapBuffers();
 
-	return(0);
+	return 0;
 }
