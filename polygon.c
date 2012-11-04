@@ -1,6 +1,6 @@
 #include <GL/glew.h>
 #include <GL/glfw.h>
-#include "gl_tools.c"
+#include "gl_tools.cpp"
 #include "openWindow.c"
 #include <stdio.h>
 #include <stdlib.h>
