@@ -1,5 +1,4 @@
 Required libraries so far:
 GLFW
 GLEW
-GSL
 (C standard library)
