@@ -8,12 +8,12 @@ class Element{ //interface for renderable objects
 	int* indices();
 	int indicesLength();
 };
-class RawElement : public Element{
+class RawElement : public Element{ // example element class. Simply plug in vertex and index data.
 	float* vertData;
 	int vertLength;
 	int* indexData;
 	int indexLength;
-	RawElement(float* verts, int vertLen, int* inds, int indLen)
+	RawElement(float* verts, int vertLen, int* inds, int indLen) 
 	{
 		vertData = (float*)malloc(vertLen*sizeof(float));
 		indexData = (int*)malloc(indLen*sizeof(float));
