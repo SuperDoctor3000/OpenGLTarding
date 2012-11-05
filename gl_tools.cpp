@@ -6,14 +6,6 @@
 #include <vector>
 //#include <gsl>
 
-typedef struct{
-	GLuint shader;
-	GLuint vertexarray;
-	GLuint vertexbuffer;
-	GLuint elementbuffer;
-	std::vector<float> data;
-} model;
-
 char *LoadFile(char *Filename)
 {
 	long Length;
@@ -53,12 +45,4 @@ MakeShader(char *Filename, GLenum Type)
 	printf("%d\n", sizeof(GLint) );
 	free(Source);
 	return(Shader);
-}
-
-model makeModel(GLuint shader, std::vector<float> data) {
-	model output;
-	output.shader = shader;
-	output.data = data;
-	glGenBuffers(1, &output.vertexbuffer);
-	return output;
 }
