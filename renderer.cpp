@@ -10,4 +10,5 @@ class Renderer{ //interface for rendering objects.
  * define the empty methods defined in the interfaces themselves, will be compatible with each other, so that one can write an element class
  * to generate vertices and indices in any way one pleases, whether from raw data or by procedurally generated perlin noise(or anything else),
  * and render the data in any way, whether by simple lightless drawing or byt complex cel-shading techniques. 
- * And the two will be mostly independent.
+ * And the two will be mostly independent.*/
+ 
